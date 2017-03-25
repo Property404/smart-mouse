@@ -1,0 +1,14 @@
+int time_in_milliseconds;
+void setup() {
+ Serial.begin(9600);
+ millis();
+}
+void loop() {
+
+ time_in_milliseconds = millis();
+ Serial.print("<"); 
+ Serial.print(time_in_milliseconds); 
+ Serial.print(">,");
+ Serial.print("\n");
+  delay(500);
+  }
