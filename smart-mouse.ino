@@ -7,19 +7,20 @@ const int X_TURNER = A0;
 const int Y_TURNER = A1;
 void setup()
 {
-	// initialize serial:
-	Serial.begin(9600);
+  // initialize serial:
+  Serial.begin(9600);
 
-	// make the pins inputs:
-	for (int i = 0; i <= 13; i++) {
-		pinMode(i, INPUT);
-	}
-
+  // Digital inputs
+  pinMode(LEFT_BUTTON, INPUT);
+  pinMode(RIGHT_BUTTON, INPUT);
+  pin
+  
+ 
   // ANALOG inputs
-  pinMode(A0, INPUT);
-  pinMode(A1, INPUT);
+  pinMode(X_TURNER, INPUT);
+  pinMode(Y_TURNER, INPUT);
 
-	Serial.print("Smartmouse setup() finished\n");
+  Serial.print("Smartmouse setup() finished\n");
 
 }
 bool left_down = 0;
