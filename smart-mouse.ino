@@ -3,6 +3,7 @@
 #define ARRAY_END 10
 #define BYTE_LIMIT 1000
 #define REQUEST_CLICK  'C'
+#define REQUEST_CLICKUP  'U'
 #define REQUEST_COPY  'c'
 #define REQUEST_PASTE  'p'
 #define REQUEST_MOVE  'm'
@@ -36,6 +37,10 @@ void setup()
 
 void click(byte button){
   byte data[] = {REQUEST_CLICK, button,ARRAY_END};
+  Serial.write(data, 3);
+}
+void clickUp(byte button){
+  byte data[] = {REQUEST_CLICKUP, button,ARRAY_END};
   Serial.write(data, 3);
 }
 void move(byte x, byte y){
@@ -111,7 +116,8 @@ void loop()
  if(right_raw && !right_down){
     click(2);
     right_down = 1;
- }else if(!right_raw){
+ }else if(!right_raw && right_down){
+    clickUp(2);
     right_down = 0;
  }
 
@@ -119,7 +125,8 @@ void loop()
  if(left_raw && !left_down){
   click(1);
   left_down = 1;
- }else if(!left_raw){
+ }else if(!left_raw && left_down){
+    clickUp(1);
     left_down = 0;
  }
 
